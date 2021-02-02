@@ -1,0 +1,30 @@
+{
+  "name": "archive-bot",
+  "version": "1.0.0",
+  "description": "Chat command line interface that allows one to choose URLs, list them in markdown file, and store as archival record.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonclark/archive-bot.git"
+  },
+  "keywords": [
+    "nodejs",
+    "archive",
+    "metadata"
+  ],
+  "author": "@jaclark Jason A. Clark",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jasonclark/archive-bot/issues"
+  },
+  "homepage": "https://github.com/jasonclark/archive-bot#readme",
+  "dependencies": {
+    "inquirer": "^4.0.1",
+    "puppeteer": ">=1.13.0",
+    "slugify": "^1.2.6"
+  }
+}

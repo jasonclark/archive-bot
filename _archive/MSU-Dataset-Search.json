@@ -1,0 +1,13 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "MSU Dataset Search",
+  "url": "https://arc.lib.montana.edu/msu-dataset-search/",
+  "keywords": [
+    "archive",
+    "library",
+    "metadata"
+  ],
+  "dateCreated": "2021-02-02T06:20:43.042Z",
+  "description": "Dataset Search is an index for academic institutional research data. Dataset Search will increase discovery, reuse, and citation of open research data, and also act as an easy-to-implement, open source, library-built system."
+}

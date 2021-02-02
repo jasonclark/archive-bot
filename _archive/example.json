@@ -1,0 +1,13 @@
+{
+  "@context": "http://schema.org",
+  "@type": "MediaObject",
+  "name": "Example Media",
+  "url": "https://examplemedia.com",
+  "keywords": [
+    "_todo",
+    "archive",
+    "library"
+  ],
+  "dateCreated": "2018-01-29T08:55:14.770Z",
+  "description": "An example of a media object"
+}
