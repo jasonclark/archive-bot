@@ -1,10 +1,9 @@
-'use strict';
-var inquirer = require('inquirer');
-var fs = require('fs');
-var slugify = require('slugify');
+const inquirer = require('inquirer');
+const fs = require('fs');
+const slugify = require('slugify');
 const puppeteer = require('puppeteer');
 
-var questions = [
+const questions = [
   {
     type: 'list',
     name: 'type',
@@ -48,7 +47,7 @@ var questions = [
   },
 ];
 
-var confirm = [
+const confirm = [
   {
     type: 'confirm',
     name: 'confirm',
@@ -62,41 +61,35 @@ function askQuestions() {
 
   inquirer.prompt(questions).then((answers) => {
 
-    var type = answers.type;
-    var title = answers.title;
-    var link = answers.link;
-    var tags = answers.tags;
-    var timestamp = new Date();
-    var description = answers.description;
+    const type = answers.type;
+    const title = answers.title;
+    const link = answers.link;
+    const tags = answers.tags;
+    const timestamp = new Date();
+    const description = answers.description;
     
-    var jsonValues = {  
+    const jsonValues = {  
       '@context': 'https://schema.org',
       '@type': type,
       name: title,
       url: link,  
       keywords: tags,
       dateCreated: timestamp, 
-      description: description  
+      description  
     };
-    var jsonData = JSON.stringify(jsonValues, null, 2);
+    const jsonData = JSON.stringify(jsonValues, null, 2);
 
-    var markdownData = '---\n' +
-                 'type: "' + type + '"\n' +
-                 'title: "' + title + '"\n' +
-                 'link: "' + link + '"\n' +
-                 'tags: [' + tags + ']\n' +
-                 'timestamp: "' + timestamp + '"\n' +
-                 '---\n' + description + '\n';
+    const markdownData = `---\ntype: "${type}"\ntitle: "${title}"\nlink: "${link}"\ntags: [${tags}]\ntimestamp: "${timestamp}"\n---\n${description}\n`;
 
     console.log('\n👻  All done! Here is what I\'ve written down:\n');
     console.log(markdownData);
 
     inquirer.prompt(confirm).then(answers => {
 
-      var slug = slugify(title);
-      var jsonFilename = '_archive/' + slug + '.json';
-      var markdownFilename = '_archive/' + slug + '.md';
-      var screenshotFilename = '_archive/' + slug + '.png';
+      const slug = slugify(title);
+      const jsonFilename = `_archive/${slug}.json`;
+      const markdownFilename = `_archive/${slug}.md`;
+      const screenshotFilename = `_archive/${slug}.png`;
 
       function writeArchiveFiles() {
         fs.writeFile(jsonFilename, jsonData, (err) => {
@@ -115,8 +108,7 @@ function askQuestions() {
           await page.screenshot({path: screenshotFilename, fullPage: true});
           await browser.close();
         })();
-        console.log('\n👻  Perfect! I saved your metadata and added files to your archive as ' +
-        jsonFilename + ' and ' + markdownFilename + ' and ' + screenshotFilename + '.  🎉 🎉 🎉\n');
+        console.log(`\n👻  Perfect! I saved your metadata and added files to your archive as ${jsonFilename} and ${markdownFilename} and ${screenshotFilename}.  🎉 🎉 🎉\n`);
       }
 
       if (answers.confirm) {
