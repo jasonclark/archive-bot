@@ -79,7 +79,7 @@ function askQuestions() {
     };
     const jsonData = JSON.stringify(jsonValues, null, 2);
 
-    const markdownData = `---\ntype: "${type}"\ntitle: "${title}"\nlink: "${link}"\ntags: [${tags}]\ntimestamp: "${timestamp}"\n---\n${description}\n`;
+    const markdownData = `-----\n# title: "${title}"\n* type: "${type}"\n* link: "[${link}](${link})"\n* tags: [${tags}]\n* timestamp: "${timestamp}"\n-----\n> ${description}\n`;
 
     console.log('\n👻  All done! Here is what I\'ve written down:\n');
     console.log(markdownData);
