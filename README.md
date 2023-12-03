@@ -1,6 +1,6 @@
 # Archive Bot
 
-Chat command line interface that allows one to choose URLs, push them with metadata to a JSON-LD file, a markdown file, and a screenshot file, creating a set of archival files.
+Chat command line interface that allows one to choose URLs, push them with metadata to a JSON-LD file, a markdown file, and a screenshot file, creating a set of archival files. A GitHub codespace which can run the demo is available at [didactic-enigma-5j4vgr4v37v56.github.dev](https://didactic-enigma-5j4vgr4v37v56.github.dev/).
 
 ## Getting Started
  1. [Install npm and node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) on your local machine.
